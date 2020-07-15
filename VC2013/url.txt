@@ -1,1 +1,9 @@
 https://script.google.com/macros/s/AKfycbzGzyB4PDn98r-Jh0GZMkYlBBe3q3p7FtpIAW6nKiuE5xZ--Efc/exec
+
+curl -d "setup=test&date=test&gametime=test&name=test&cube=test&line1=test&line2=test&line3=test&line4=test&line5=test&next=test&score=test&startlevel=test" https://script.google.com/macros/s/AKfycbzGzyB4PDn98r-Jh0GZMkYlBBe3q3p7FtpIAW6nKiuE5xZ--Efc/exec
+
+curl -X POST -F "setup=test&date=test&gametime=test&name=test&cube=test&line1=test&line2=test&line3=test&line4=test&line5=test&next=test&score=test&startlevel=test" https://script.google.com/macros/s/AKfycbzGzyB4PDn98r-Jh0GZMkYlBBe3q3p7FtpIAW6nKiuE5xZ--Efc/exec
+
+curl -d "setup=test&date=test&gametime=test&name=test&cube=test&line1=test&line2=test&line3=test&line4=test&line5=test&next=test&score=test&startlevel=test" https://script.google.com/macros/s/AKfycbzHF9rRxY6ps6DGAo_2wEuPWZnCFZMglRYEESq07OqvaX5emiye/exec
+
+Exception thrown at 0x75B48B60 (msvcrt.dll) in readfile.exe: 0xC0000005: Access violation reading location 0xDDDDDDDD. occurred
