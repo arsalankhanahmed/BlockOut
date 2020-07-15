@@ -22,8 +22,9 @@
 
 #include <iostream>
 #include <string>
+#include <system.h>
+#include <system.h>
 using namespace std;
-
 
 void PageHallOfFame::Prepare(int iParam,void *pParam) {
 
@@ -140,9 +141,14 @@ void PageHallOfFame::ProcessEdit(BYTE *keys,float fTime) {
     mParent->GetSetup()->SaveHighScore();
     mParent->GetSetup()->GetHighScore(allScore);
     
-   
-   string url = "YOUR URL";
-   string data = "";
+    string myText;
+    ifstream urlFile(LID((char*)"url.txt"));
+    string url="";
+    while (getline(urlFile, myText)) {
+         url += myText;
+    }
+   urlFile.close();
+   std::string data = "";
 
     data += "setup=";
     data += SetupManager().GetName();
@@ -185,7 +191,7 @@ void PageHallOfFame::ProcessEdit(BYTE *keys,float fTime) {
 
     ofstream response_flie;
     response_flie.open("response_file.txt");
-    response_flie << data;
+    response_flie << url;
     CURL* curl;
     CURLcode res;
 
@@ -200,7 +206,7 @@ void PageHallOfFame::ProcessEdit(BYTE *keys,float fTime) {
            data. */
         curl_easy_setopt(curl, CURLOPT_URL, url);
         /* Now specify the POST data */
-        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);//"name=daniel&project=curl");
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data.c_str());//"name=daniel&project=curl");
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0);
 
